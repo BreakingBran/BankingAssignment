@@ -1,9 +1,10 @@
 public class Account {
 
-	private int totalMoney;
+	protected int totalMoney;
 	public int intrestRate;
-	private int numOfTransaction;
+	protected int numOfTransaction;
 	public int transactionFee;
+	public int serviceFee;
 
 	public Account(int totalMoney) {
 		this.totalMoney = totalMoney;
@@ -32,11 +33,11 @@ public class Account {
 	}
 
 	public void deductTransaction() {
-
+		this.totalMoney -= transactionFee;
 	}
 
 	public void deductServiceCharge() {
-
+		this.totalMoney -= serviceFee;
 	}
 
 }
