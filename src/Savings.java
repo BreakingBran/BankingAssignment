@@ -9,5 +9,5 @@ public class Savings extends Account {
 	}
 
 	public void deductTransaction() {
-		this.totalMoney 
+		this.totalMoney -= transactionFee; 
 	}}
