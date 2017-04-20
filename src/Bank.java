@@ -7,10 +7,12 @@ public class Bank {
 		Scanner sc = new Scanner(System.in);
 
 		// Number of people in the bank
-		int numberOfMembers = sc.nextInt();
+		// int numberOfMembers = sc.nextInt();
+		//Bank ourBank = new Bank();
+		
 		int totalMoneyInvested;
 
-		List<Account> accountMembers = new ArrayList<Account>(numberOfMembers);
+		List<Account> accountMembers = new ArrayList<Account>();
 
 		int checkingCounter = 0;
 		List<Account> counterMembersIndexes = new ArrayList<Account>();
@@ -21,29 +23,82 @@ public class Bank {
 		int seniorCounter = 0;
 		List<Account> seniorMembersIndexes = new ArrayList<Account>();
 
+		boolean isBankOn = true;
+		String prompt;
+		int money;
+
+		while (isBankOn) {
+			prompt = sc.next();
+			
+			if (prompt == "new account")
+			{
+				System.out.println("What type of account: ");
+				prompt = sc.next();
+				if (prompt.toLowerCase() == "savings")
+				{
+					System.out.println("Initial Amount: ");
+					money = sc.nextInt();
+					Savings member = new Savings(money);
+					accountMembers.add(member);		
+					savingsCounter += 1;
+
+				}
+				
+				else if (prompt.toLowerCase() == "chequing")
+				{
+					System.out.println("Initial Amount: ");
+					money = sc.nextInt();
+					Chequing member = new Chequing(money);
+					accountMembers.add(member);
+					checkingCounter += 1;
+				}
+				
+				else if (prompt.toLowerCase() == "senior" || prompt.toLowerCase() == "child")
+				{
+					System.out.println("Initial Amount: ");
+					money = sc.nextInt();
+					SeniorChild member = new SeniorChild(money);
+					accountMembers.add(member);
+					seniorCounter += 1;
+
+				}
+			}
+			
+			else if (prompt == "setSavingsIntrest")
+			{
+				setSavingsIntrest();
+				
+			}
+			
+			else if (prompt == "exit")
+			{
+				isBankOn = false;
+			}
+		}
+
 	}
 
-	public void setSavingsIntrest() {
+	static public void setSavingsIntrest() {
+		Savings.
+	}
+
+	static public void setCheckingIntrest() {
 
 	}
 
-	public void setCheckingIntrest() {
+	static public void setSeniorIntrest() {
 
 	}
 
-	public void setSeniorIntrest() {
+	static public void payAccountHolders() {
 
 	}
 
-	public void payAccountHolders() {
+	static public void chargeServiceFees() {
 
 	}
 
-	public void chargeServiceFees() {
-
-	}
-
-	public void resetTransactions() {
+	static public void resetTransactions() {
 
 	}
 }
