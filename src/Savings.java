@@ -1,6 +1,6 @@
 public class Savings extends Account {
 
-	//static int intrestRate;
+	static int intrestRate;
 
 	public Savings(int totalMoney) {
 		super(totalMoney);
@@ -10,4 +10,10 @@ public class Savings extends Account {
 
 	public void deductTransaction() {
 		this.totalMoney -= transactionFee; 
-	}}
+	}
+	
+	static public void printIntrest()
+	{
+		System.out.println(intrestRate);
+	}	
+}

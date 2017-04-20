@@ -1,7 +1,7 @@
 
 public class Chequing extends Account {
 
-	//static int intrestRate;
+	static int intrestRate;
 
 	public Chequing( int totalMoney) {
 		super(totalMoney);

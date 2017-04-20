@@ -1,9 +1,9 @@
 public class Account {
 
 	protected int totalMoney;
-	public int intrestRate;
+	//static public int intrestRate = 0;
 	protected int numOfTransaction;
-	public int transactionFee;
+	static public int transactionFee;
 	public int serviceFee;
 
 	public Account(int totalMoney) {
@@ -39,5 +39,9 @@ public class Account {
 	public void deductServiceCharge() {
 		this.totalMoney -= serviceFee;
 	}
-
+	
+	/*static public void printIntrest()
+	{
+		System.out.println(intrestRate);
+	}	*/
 }

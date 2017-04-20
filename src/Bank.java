@@ -8,8 +8,8 @@ public class Bank {
 
 		// Number of people in the bank
 		// int numberOfMembers = sc.nextInt();
-		//Bank ourBank = new Bank();
-		
+		// Bank ourBank = new Bank();
+
 		int totalMoneyInvested;
 
 		List<Account> accountMembers = new ArrayList<Account>();
@@ -29,32 +29,29 @@ public class Bank {
 
 		while (isBankOn) {
 			prompt = sc.next();
-			
-			if (prompt == "new account")
-			{
+
+			if (prompt.equals("new account")) {
 				System.out.println("What type of account: ");
 				prompt = sc.next();
-				if (prompt.toLowerCase() == "savings")
-				{
+				if (prompt.toLowerCase() == "savings") {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					Savings member = new Savings(money);
-					accountMembers.add(member);		
+					accountMembers.add(member);
 					savingsCounter += 1;
 
 				}
-				
-				else if (prompt.toLowerCase() == "chequing")
-				{
+
+				else if (prompt.toLowerCase().equals( "chequing")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					Chequing member = new Chequing(money);
 					accountMembers.add(member);
 					checkingCounter += 1;
 				}
-				
-				else if (prompt.toLowerCase() == "senior" || prompt.toLowerCase() == "child")
-				{
+
+				else if ((prompt.toLowerCase()).equals("senior")
+						|| prompt.toLowerCase() == "child") {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					SeniorChild member = new SeniorChild(money);
@@ -63,15 +60,19 @@ public class Bank {
 
 				}
 			}
-			
-			else if (prompt == "setSavingsIntrest")
-			{
+
+			else if (prompt.equals("setSavingsIntrest")) {
+				System.out.println("I ran");
+				Account.printIntrest();
+				Savings.printIntrest();
 				setSavingsIntrest();
-				
+				Account.printIntrest();
+				Savings.printIntrest();
+				System.out.println("I ran");
+
 			}
-			
-			else if (prompt == "exit")
-			{
+
+			else if (prompt.equals("exit")) {
 				isBankOn = false;
 			}
 		}
@@ -79,7 +80,7 @@ public class Bank {
 	}
 
 	static public void setSavingsIntrest() {
-		Savings.
+		Savings.intrestRate = 5;
 	}
 
 	static public void setCheckingIntrest() {
