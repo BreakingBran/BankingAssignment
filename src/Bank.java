@@ -42,7 +42,7 @@ public class Bank {
 
 				}
 
-				else if (prompt.toLowerCase().equals( "chequing")) {
+				else if (prompt.toLowerCase().equals("chequing")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					Chequing member = new Chequing(money);
@@ -62,13 +62,28 @@ public class Bank {
 			}
 
 			else if (prompt.equals("setSavingsIntrest")) {
-				System.out.println("I ran");
-				Account.printIntrest();
+
 				Savings.printIntrest();
-				setSavingsIntrest();
-				Account.printIntrest();
+				System.out.println("Whar's the new intrest rate: ");
+				money = sc.nextInt();
+				setSavingsIntrest(money);
 				Savings.printIntrest();
-				System.out.println("I ran");
+
+			} else if (prompt.equals("setCheckingIntrest")) {
+
+				Savings.printIntrest();
+				System.out.println("Whar's the new intrest rate: ");
+				money = sc.nextInt();
+				setCheckingIntrest(money);
+				Savings.printIntrest();
+
+			} else if (prompt.equals("setSeniorIntrest")) {
+
+				Savings.printIntrest();
+				System.out.println("Whar's the new intrest rate: ");
+				money = sc.nextInt();
+				setSavingsIntrest(money);
+				Savings.printIntrest();
 
 			}
 
@@ -79,16 +94,16 @@ public class Bank {
 
 	}
 
-	static public void setSavingsIntrest() {
-		Savings.intrestRate = 5;
+	static public void setSavingsIntrest(int newIntrest) {
+		Savings.intrestRate = newIntrest;
 	}
 
-	static public void setCheckingIntrest() {
-
+	static public void setCheckingIntrest(int newIntrest) {
+		Chequing.intrestRate = newIntrest;
 	}
 
-	static public void setSeniorIntrest() {
-
+	static public void setSeniorIntrest(int newIntrest) {
+		SeniorChild.intrestRate = newIntrest;
 	}
 
 	static public void payAccountHolders() {
