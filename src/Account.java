@@ -5,6 +5,7 @@ public class Account {
 	protected int numOfTransaction;
 	static public int transactionFee;
 	public int serviceFee;
+	protected int accountNumber;
 
 	public Account(int totalMoney) {
 		this.totalMoney = totalMoney;
