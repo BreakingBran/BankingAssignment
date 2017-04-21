@@ -26,6 +26,7 @@ public class Bank {
 		boolean isBankOn = true;
 		String prompt;
 		int money;
+		//WANKERRRSASDASDADADASTEST
 		
 		System.out.println("Welcome to the bank: \nInsert your set of instructions");
 
