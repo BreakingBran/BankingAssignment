@@ -9,6 +9,8 @@ public class Bank {
 		// Number of people in the bank
 		// int numberOfMembers = sc.nextInt();
 		// Bank ourBank = new Bank();
+		
+		//Hello Charisa
 
 		int totalMoneyInvested;
 
