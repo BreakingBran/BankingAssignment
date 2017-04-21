@@ -26,14 +26,17 @@ public class Bank {
 		boolean isBankOn = true;
 		String prompt;
 		int money;
+		
+		System.out.println("Welcome to the bank: \nInsert your set of instructions");
 
 		while (isBankOn) {
+			System.out.print("> ");
 			prompt = sc.next();
 
-			if (prompt.equals("new account")) {
-				System.out.println("What type of account: ");
+			if (prompt.equals("new account") || prompt.equals("new")) {
+				System.out.println("What type of account (senior/savings/chequing): ");
 				prompt = sc.next();
-				if (prompt.toLowerCase() == "savings") {
+				if (prompt.toLowerCase() == "savings" || prompt.toLowerCase().equals("sa")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					Savings member = new Savings(money);
@@ -42,7 +45,7 @@ public class Bank {
 
 				}
 
-				else if (prompt.toLowerCase().equals("chequing")) {
+				else if (prompt.toLowerCase().equals("chequing") || prompt.toLowerCase().equals("ch")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					Chequing member = new Chequing(money);
@@ -50,7 +53,7 @@ public class Bank {
 					checkingCounter += 1;
 				}
 
-				else if ((prompt.toLowerCase()).equals("senior")
+				else if ((prompt.toLowerCase()).equals("senior") || prompt.toLowerCase().equals("se")
 						|| prompt.toLowerCase() == "child") {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
@@ -61,7 +64,7 @@ public class Bank {
 				}
 			}
 
-			else if (prompt.equals("setSavingsIntrest")) {
+			else if (prompt.toLowerCase().equals("setsavingsintrest") ||  prompt.toLowerCase().equals("setsi")) {
 
 				Savings.printIntrest();
 				System.out.println("Whar's the new intrest rate: ");
@@ -69,7 +72,7 @@ public class Bank {
 				setSavingsIntrest(money);
 				Savings.printIntrest();
 
-			} else if (prompt.equals("setCheckingIntrest")) {
+			} else if (prompt.equals("setCheckingIntrest") ||  prompt.toLowerCase().equals("setci")) {
 
 				Savings.printIntrest();
 				System.out.println("Whar's the new intrest rate: ");
@@ -77,10 +80,10 @@ public class Bank {
 				setCheckingIntrest(money);
 				Savings.printIntrest();
 
-			} else if (prompt.equals("setSeniorIntrest")) {
+			} else if (prompt.equals("setSeniorIntrest") ||  prompt.toLowerCase().equals("setsci")) {
 
 				Savings.printIntrest();
-				System.out.println("Whar's the new intrest rate: ");
+				System.out.println("What's the new intrest rate: ");
 				money = sc.nextInt();
 				setSavingsIntrest(money);
 				Savings.printIntrest();
@@ -89,6 +92,10 @@ public class Bank {
 
 			else if (prompt.equals("exit")) {
 				isBankOn = false;
+			}
+			
+			else {
+				System.out.println("Command not recognized, please try again.");
 			}
 		}
 
