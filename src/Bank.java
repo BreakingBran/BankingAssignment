@@ -12,7 +12,7 @@ public class Bank {
 		
 		//Hello Charisa
 
-		int totalMoneyInvested;
+		int totalMoneyInvested; //8===D
 
 		List<Account> accountMembers = new ArrayList<Account>();
 
