@@ -1,9 +1,9 @@
 
 public class SeniorChild extends Account {
 
-	static int intrestRate;
+	static double intrestRate;
 
-	public SeniorChild(int totalMoney) {
+	public SeniorChild(double totalMoney) {
 		super(totalMoney);
 		/*this.intrestRate = intrestRate;
 		this.transactionFee = transactionFee;*/

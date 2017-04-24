@@ -1,18 +1,22 @@
 import java.util.*;
 
+import com.sun.org.apache.xml.internal.dtm.ref.EmptyIterator;
+
 public class Bank {
+
+	static Scanner sc;
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 
 		// Number of people in the bank
 		// int numberOfMembers = sc.nextInt();
 		// Bank ourBank = new Bank();
-		
-		//Hello Charisa
 
-		int totalMoneyInvested; //8===D
+		// Hello Charisa
+
+		int totalMoneyInvested; // 8===D
 
 		List<Account> accountMembers = new ArrayList<Account>();
 
@@ -28,19 +32,19 @@ public class Bank {
 		boolean isBankOn = true;
 		String prompt;
 		int money;
-		
-		//Hello Keshawn
-		
-		System.out.println("Welcome to the bank: \nInsert your set of instructions");
+
+		System.out
+				.println("Welcome to the bank: \nInsert your set of instructions");
 
 		while (isBankOn) {
 			System.out.print("> ");
 			prompt = sc.next().toLowerCase();
 
 			if (prompt.equals("new")) {
-				System.out.println("What type of account (senior/savings/chequing): ");
+				System.out
+						.println("What type of account (senior/savings/chequing): ");
 				String accountType = sc.next().toLowerCase();
-				
+
 				if (accountType.equals("savings") || accountType.equals("sa")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
@@ -58,7 +62,7 @@ public class Bank {
 					checkingCounter += 1;
 				}
 
-				else if (accountType.equals("senior")){
+				else if (accountType.equals("senior")) {
 					System.out.println("Initial Amount: ");
 					money = sc.nextInt();
 					SeniorChild member = new SeniorChild(money);
@@ -93,16 +97,15 @@ public class Bank {
 				Savings.printIntrest();
 
 			}
-			
-			else if (prompt.equals("search"))
-			{
-				System.out.println();
+
+			else if (prompt.equals("monthly")) {
+				monthlyRoutine(accountMembers);
 			}
 
 			else if (prompt.toLowerCase().equals("exit")) {
 				isBankOn = false;
 			}
-			
+
 			else {
 				System.out.println("Command not recognized, please try again.");
 			}
@@ -122,15 +125,50 @@ public class Bank {
 		SeniorChild.intrestRate = newIntrest;
 	}
 
-	static public void payAccountHolders() {
+	// List<Account> accountMembers = new ArrayList<Account>();
 
+	static public void payAccountHolders(List<Account> accountMembers)
+			throws Exception {
+		// loops through all members and pays them intrest
+		if (accountMembers.size() == 0) {
+			System.out.println("Say what?");
+			throw new Exception("accountMembers is empty you fool");
+		}
+		for (int i = 0; i < accountMembers.size(); i++) {
+			accountMembers.get(i).payIntrest();
+		}
 	}
 
-	static public void chargeServiceFees() {
-
+	static public void chargeServiceFees(List<Account> accountMembers) {
+		// loops through all members and deducts service charge
+		for (int i = 0; i < accountMembers.size(); i++) {
+			accountMembers.get(i).deductServiceCharge();
+		}
 	}
 
-	static public void resetTransactions() {
+	static public void resetTransactions(List<Account> accountMembers) {
+		// loops through all members resets their transactions to 0
+		for (int i = 0; i < accountMembers.size(); i++) {
+			accountMembers.get(i).resetTransaction();
+		}
+	}
 
+	static public void monthlyRoutine(List<Account> accountMembers) {
+		/*
+		 * loops through all members and pays them intrest deducts service
+		 * charges resets transaction and forces user to set new intrest rates
+		 */
+		for (int i = 0; i < accountMembers.size(); i++) {
+			accountMembers.get(i).payIntrest();
+			accountMembers.get(i).deductServiceCharge();
+			accountMembers.get(i).resetTransaction();
+		}
+
+		System.out.println("Set new savings intrest: ");
+		setSavingsIntrest(sc.nextInt());
+		System.out.println("Set new checking intrest: ");
+		setCheckingIntrest(sc.nextInt());
+		System.out.println("Set new senior intrest: ");
+		setSeniorIntrest(sc.nextInt());
 	}
 }

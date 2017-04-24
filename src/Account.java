@@ -1,24 +1,31 @@
 public class Account {
 
-	protected int totalMoney;
+	protected double totalMoney;
 	//static public int intrestRate = 0;
-	protected int numOfTransaction;
-	static public int transactionFee;
-	public int serviceFee;
+	protected int numOfTransaction = 0;
+	public double serviceFee;
 	protected int accountNumber;
 
-	public Account(int totalMoney) {
+	public Account(double totalMoney) {
 		this.totalMoney = totalMoney;
 		this.numOfTransaction = 0;
 		// TODO Auto-generated constructor stub
 	}
+	
+	//Overloading
+	public Account() {
+		this.totalMoney = 0;
+		//this.numOfTransaction = 0;
+		// TODO Auto-generated constructor stub
+	}
 
-	public int getTotalMoney() {
+	public double getTotalMoney() {
 		return totalMoney;
 	}
 
 	public void setTotalMoney(int totalMoney) {
 		this.totalMoney = totalMoney;
+		//this.numOfTransaction = 0;
 	}
 
 	public int getNumOfTransaction() {
@@ -34,11 +41,16 @@ public class Account {
 	}
 
 	public void deductTransaction() {
-		this.totalMoney -= transactionFee;
+		this.totalMoney -= 0;
 	}
 
 	public void deductServiceCharge() {
 		this.totalMoney -= serviceFee;
+	}
+	
+	public void resetTransaction()
+	{
+		this.numOfTransaction = 0;
 	}
 	
 	/*static public void printIntrest()

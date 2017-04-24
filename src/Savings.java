@@ -1,19 +1,27 @@
 public class Savings extends Account {
 
-	static int intrestRate;
+	static double intrestRate;
+	static double transactionFee = 2;
 
-	public Savings(int totalMoney) {
+	public Savings(double totalMoney) {
 		super(totalMoney);
-		/*this.intrestRate = intrestRate;
-		this.transactionFee = transactionFee;*/
+		/*
+		 * this.intrestRate = intrestRate; this.transactionFee = transactionFee;
+		 */
 	}
 
 	public void deductTransaction() {
-		this.totalMoney -= transactionFee; 
+		if (this.numOfTransaction > 5) {
+			this.totalMoney -= transactionFee;
+		}
+	}
+
+	static public void printIntrest() {
+		System.out.println(intrestRate);
 	}
 	
-	static public void printIntrest()
+	static public void setIntrestSavings(int newIntrest)
 	{
-		System.out.println(intrestRate);
-	}	
+		intrestRate = newIntrest;
+	}
 }
